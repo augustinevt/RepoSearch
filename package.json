@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "git_hub_search",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,13 @@
     "jshint": "^2.9.2",
     "vinyl-source-stream": "^1.1.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augustinevt/weather_api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/augustinevt/weather_api/issues"
+  },
+  "homepage": "https://github.com/augustinevt/weather_api#readme",
   "description": ""
 }
