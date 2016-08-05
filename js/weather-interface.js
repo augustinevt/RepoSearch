@@ -7,9 +7,13 @@ function toConsole(result) {
 
 
 function unfoundUser() {
-  $('.user-info').html('<img src="http://i.imgur.com/W7mqS78.gif" alt="404 gif" />');
+  $('.user-info').html('<img src="http://i.imgur.com/W7mqS78.gif" alt="404 gif" /><h6>This user does not exist</h6>');
   $('#user-repos').fadeOut();
+  $('.user-info').fadeIn();
+}
 
+function unfoundRepos() {
+  $('#user-repos').fadeOut();
 }
 
 
@@ -63,7 +67,7 @@ $(document).ready(function() {
     current_github.getUserInfo(username, toConsole);
     current_github.getUserInfo(username, displayUserInfo, unfoundUser);
     current_github.getUserRepos(username, toConsole);
-    current_github.getUserRepos(username, displayUserRepos, unfoundUser);
+    current_github.getUserRepos(username, displayUserRepos, unfoundRepos);
 
   });
 });
