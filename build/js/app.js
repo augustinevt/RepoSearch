@@ -6,17 +6,18 @@ var apiKey = require('./../.env').apiKey;
 
 function GitHub() {}
 
-GitHub.prototype.getUserInfo = function(username, callback) {
+GitHub.prototype.getUserInfo = function(username, success, failure) {
   $.get('https://api.github.com/users/'+username+'?access_token=' + apiKey).then(function(response) {
-     callback(response);
+     success(response);
    }).fail(function(error) {
+     failure();
      console.log(error);
    });
 }
 
-GitHub.prototype.getUserRepos = function(username, callback) {
+GitHub.prototype.getUserRepos = function(username, success, failure) {
   $.get('https://api.github.com/search/repositories?q=user:'+ username + '&access_token=' + apiKey).then(function(response) {
-     callback(response);
+     success(response);
    }).fail(function(error) {
      console.log(error);
    });
@@ -32,7 +33,17 @@ function toConsole(result) {
   console.log(result);
 }
 
+
+function unfoundUser() {
+  $('.user-info').html('<img src="http://i.imgur.com/W7mqS78.gif" alt="404 gif" />');
+  $('#user-repos').html('');
+
+}
+
+
 function displayUserInfo(response) {
+  var html = $('#user-main-store').html();
+  $('.user-info').html(html);
   $('#user-img').attr('src',response.avatar_url);
   $('#user-name').text(response.name);
   $('.user-url').attr('href',response.html_url);
@@ -60,20 +71,27 @@ function displayUserRepos(response) {
     $(this).find('.description').slideToggle();
   })
 
+  $('#user-repos').fadeIn();
+
 }
 
 
 
 $(document).ready(function() {
+
+  $('body').click(function(){
+    $('#unfound').fadeOut('slow')
+  });
+
   $('#search-form').submit(function(e) {
     e.preventDefault();
     current_github = new GitHub();
 
     var username = $('#username').val();
     current_github.getUserInfo(username, toConsole);
-    current_github.getUserInfo(username, displayUserInfo);
+    current_github.getUserInfo(username, displayUserInfo, unfoundUser);
     current_github.getUserRepos(username, toConsole);
-    current_github.getUserRepos(username, displayUserRepos);
+    current_github.getUserRepos(username, displayUserRepos, unfoundUser);
 
   });
 });

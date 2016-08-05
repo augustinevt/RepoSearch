@@ -11,6 +11,10 @@ div {
   display: none;
   min-width: 780px;
 }
+#user-repos {
+  display: none;
+}
+
 
 .search {
   text-align: center;
@@ -43,5 +47,13 @@ input:focus {
 }
 
 button {
+  display:none;
+}
+
+#unfound {
+  display: none;
+}
+
+#user-main-store {
   display:none;
 }
