@@ -8,7 +8,7 @@ function toConsole(result) {
 
 function unfoundUser() {
   $('.user-info').html('<img src="http://i.imgur.com/W7mqS78.gif" alt="404 gif" />');
-  $('#user-repos').html('');
+  $('#user-repos').fadeOut();
 
 }
 
