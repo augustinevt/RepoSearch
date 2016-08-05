@@ -30,6 +30,10 @@ exports.GitHub = GitHub;
 
 var GitHub = require('./../js/git_hub.js').GitHub;
 
+function toConsole(result) {
+  console.log(result);
+}
+
 function unfoundUser() {
   $('.user-info').html('<img src="http://i.imgur.com/W7mqS78.gif" alt="404 gif" /><h6>This user does not exist</h6>');
   $('#user-repos').fadeOut();
