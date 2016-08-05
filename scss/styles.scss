@@ -1,6 +1,4 @@
-div {
 
-}
 #user-details {
   float:right;
 }
@@ -13,10 +11,8 @@ div {
 }
 #user-repos {
   display: none;
-
   margin: 50px;
 }
-
 
 .search {
   text-align: center;
@@ -35,7 +31,6 @@ input {
   padding:50px;
   font-size: 3em;
   font-family: monospace;
-
 }
 input:focus {
   height:100px;

@@ -30,11 +30,6 @@ exports.GitHub = GitHub;
 
 var GitHub = require('./../js/git_hub.js').GitHub;
 
-function toConsole(result) {
-  console.log(result);
-}
-
-
 function unfoundUser() {
   $('.user-info').html('<img src="http://i.imgur.com/W7mqS78.gif" alt="404 gif" /><h6>This user does not exist</h6>');
   $('#user-repos').fadeOut();
@@ -44,7 +39,6 @@ function unfoundUser() {
 function unfoundRepos() {
   $('#user-repos').fadeOut();
 }
-
 
 function displayUserInfo(response) {
   var html = $('#user-main-store').html();
@@ -63,24 +57,17 @@ function displayUserRepos(response) {
   response.items.forEach(function(repo, i) {
     $('#user-repos').append('<div class="well repo" id=repo'+ i +'></div>')
     $('#repo'+i).append('<h2>' + repo.name + '</h2>');
-
-
     if (repo.description) {
       $('#repo'+i).append('<p class="description">' + repo.description + '</p>');
     }else{
       $('#repo'+i).append('<p class="description">This repository has no description!?</p>');
     }
   });
-
   $('.repo').click(function(){
     $(this).find('.description').slideToggle();
   })
-
   $('#user-repos').fadeIn();
-
 }
-
-
 
 $(document).ready(function() {
 
@@ -91,13 +78,11 @@ $(document).ready(function() {
   $('#search-form').submit(function(e) {
     e.preventDefault();
     current_github = new GitHub();
-
     var username = $('#username').val();
     current_github.getUserInfo(username, toConsole);
     current_github.getUserInfo(username, displayUserInfo, unfoundUser);
     current_github.getUserRepos(username, toConsole);
     current_github.getUserRepos(username, displayUserRepos, unfoundRepos);
-
   });
 });
 
