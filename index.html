@@ -2,17 +2,45 @@
 <html>
   <head>
     <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="build/css/styles.css">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
     <title>Weather</title>
   </head>
   <body>
+
     <div class="container">
-      <h1>Find your Friends' Repositories for Free</h1>
-      <label for="username">Enter thier username:</label>
-      <input id="username" type="text">
-      <button class="btn-success" id="username-button">Request!</button>
-      <div class="show-user-info"></div>
+      <div class="search">
+        <label for="username">Enter thier username:</label>
+        <input id="username" type="text">
+        <button class="btn-success" id="username-button">Request!</button>
+      </div>
     </div>
+
+
+    <div class="container">
+      <div class="user-info well jumbotron">
+        <div id="user-main">
+          <a class="user-url" href="#"><h1 id="user-name">name of user</h1></a>
+          <img id="user-img" src="#" alt="image of user"/>
+          <div id="user-details">
+            <a class="user-url" href="#">Link to github</a>
+            <h3>followers: <span id="user-followers"></span></h3>
+            <h3>following: <span id="user-following"></span></h3>
+            <h3>repositories: <span id="user-repo-count"><span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="well user-repos">
+
+    </div>
+
+
+
+
+
+
   </body>
 </html>
