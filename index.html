@@ -11,9 +11,12 @@
 
     <div class="container">
       <div class="search">
-        <label for="username">Enter thier username:</label>
-        <input id="username" type="text">
-        <button class="btn-success" id="username-button">Request!</button>
+        <form id="search-form"class="" action="#" method="post">
+          <label for="username">
+            <input id="username" type="text" placeholder="  USERNAME ">
+          </label>
+          <button type="submit" id="username-button" name="button"></button>
+        </form>
       </div>
     </div>
 
@@ -33,7 +36,7 @@
       </div>
     </div>
 
-    <div class="well user-repos">
+    <div class="well" id="user-repos">
 
     </div>
 

@@ -16,3 +16,32 @@ div {
   text-align: center;
   margin: 50px;
 }
+
+.description {
+  display:none;
+}
+
+input {
+  height:100px;
+  width:400px;
+  border-radius: 50px;
+  border: solid 5px;
+  padding:50px;
+  font-size: 3em;
+  font-family: monospace;
+
+}
+input:focus {
+  height:100px;
+  width:400px;
+  border-radius: 50px;
+  border: solid 5px orange;
+  outline: none;
+  padding:50px;
+  font-size: 3em;
+  font-family: monospace;
+}
+
+button {
+  display:none;
+}

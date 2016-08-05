@@ -15,19 +15,38 @@ function displayUserInfo(response) {
   $('.user-info').fadeIn();
 }
 
+function displayUserRepos(response) {
+    $('#user-repos').html("");
+  response.items.forEach(function(repo, i) {
+    $('#user-repos').append('<div class="well repo" id=repo'+ i +'></div>')
+    $('#repo'+i).append('<h2>' + repo.name + '</h2>');
+
+
+    if (repo.description) {
+      $('#repo'+i).append('<p class="description">' + repo.description + '</p>');
+    }else{
+      $('#repo'+i).append('<p class="description">This repository has no description!?</p>');
+    }
+  });
+
+  $('.repo').click(function(){
+    $(this).find('.description').slideToggle();
+  })
+
+}
+
 
 
 $(document).ready(function() {
-  $('#username-button').click(function() {
-
+  $('#search-form').submit(function(e) {
+    e.preventDefault();
     current_github = new GitHub();
 
     var username = $('#username').val();
-    $('#username').val("");
-
     current_github.getUserInfo(username, toConsole);
     current_github.getUserInfo(username, displayUserInfo);
     current_github.getUserRepos(username, toConsole);
+    current_github.getUserRepos(username, displayUserRepos);
 
   });
 });
